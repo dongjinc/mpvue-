@@ -39,6 +39,8 @@
     "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
     "cssnano": "^3.10.0",
+    "sass-loader": "7.3.1",
+    "node-sass": "^4.13.0",
     "eslint": "^4.19.1",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.0.0",

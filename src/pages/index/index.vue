@@ -1,8 +1,12 @@
 <template>
   <div @click="clickHandle">
-
     <div class="userinfo" @click="bindViewTap">
-      <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
+      <img
+        class="userinfo-avatar"
+        v-if="userInfo.avatarUrl"
+        :src="userInfo.avatarUrl"
+        background-size="cover"
+      />
       <img class="userinfo-avatar" src="/static/images/user.png" background-size="cover" />
 
       <div class="userinfo-nickname">
@@ -25,10 +29,8 @@
     <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
 
     <div class="all">
-        <div class="left">
-        </div>
-        <div class="right">
-        </div>
+      <div class="left"></div>
+      <div class="right"></div>
     </div>
   </div>
 </template>
@@ -72,7 +74,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -100,27 +102,27 @@ export default {
   margin-bottom: 5px;
   border: 1px solid #ccc;
 }
-.all{
-  width:7.5rem;
-  height:1rem;
-  background-color:blue;
+.all {
+  width: 7.5rem;
+  height: 1rem;
+  background-color: blue;
 }
-.all:after{
-  display:block;
-  content:'';
-  clear:both;
+.all:after {
+  display: block;
+  content: '';
+  clear: both;
 }
-.left{
-  float:left;
-  width:3rem;
-  height:1rem;
-  background-color:red;
+.left {
+  float: left;
+  width: 3rem;
+  height: 1rem;
+  background-color: red;
 }
 
-.right{
-  float:left;
-  width:4.5rem;
-  height:1rem;
-  background-color:green;
+.right {
+  float: left;
+  width: 4.5rem;
+  height: 1rem;
+  background-color: green;
 }
 </style>
