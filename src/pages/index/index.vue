@@ -1,6 +1,7 @@
 <template>
   <div @click="clickHandle">
     <div class="userinfo" @click="bindViewTap">
+      <van-button>this is vant components</van-button>
       <img
         class="userinfo-avatar"
         v-if="userInfo.avatarUrl"

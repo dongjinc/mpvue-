@@ -1,4 +1,6 @@
 <script>
+// 声明wx api文件
+/// <reference types="miniprogram-api-typings" />
 export default {
   created () {
     // 调用API从本地缓存中获取数据
@@ -12,7 +14,7 @@ export default {
 
     let logs
     if (mpvuePlatform === 'my') {
-      logs = mpvue.getStorageSync({key: 'logs'}).data || []
+      logs = mpvue.getStorageSync({ key: 'logs' }).data || []
       logs.unshift(Date.now())
       mpvue.setStorageSync({
         key: 'logs',

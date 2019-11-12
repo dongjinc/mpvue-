@@ -2,12 +2,16 @@
 
 > it is js mpvue frame
 
-## Build Setup
+## 有
+# 安装sass/scss
+1. yarn add sass-loader node-sass -D
 
-``` bash
-# 初始化项目
-vue init mpvue/mpvue-quickstart myproject
-cd myproject
+# 设置 .vscode settings 
+2. 代码风格统一，继承eslint保存自动格式化代码
+
+# 新增小程序 miniprogram-api-typings库声明
+<!-- https://developers.weixin.qq.com/miniprogram/dev/extended/utils/api-typings.html -->
+3. 小程序api代码提示
 
 # 安装依赖
 yarn
