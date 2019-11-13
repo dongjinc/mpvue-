@@ -1,7 +1,7 @@
 <template>
-  <div @click="clickHandle">
+  <div>
     <div class="userinfo" @click="bindViewTap">
-      <van-button>this is vant components</van-button>
+      <van-button @click="clickHandle">this is vant components</van-button>
       <img
         class="userinfo-avatar"
         v-if="userInfo.avatarUrl"
@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import { get } from '../../utils/http'
 import card from '@/components/card'
 
 export default {
@@ -63,8 +64,13 @@ export default {
         mpvue.navigateTo({ url })
       }
     },
-    clickHandle (ev) {
-      console.log('clickHandle:', ev)
+    async clickHandle (ev) {
+      try {
+        const result = await get('localhost', { name: '1', age: 21 })
+        console.log('clickHandle:', result)
+      } catch (err) {
+        console.log(err)
+      }
       // throw {message: 'custom test'}
     }
   },
