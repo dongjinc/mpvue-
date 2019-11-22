@@ -35,7 +35,9 @@ export default {
       ]
     }
   },
-
+  onShow (query) {
+    console.log(this.$mp.query)
+  },
   created () {
     let logs
     if (mpvuePlatform === 'my') {

@@ -18,6 +18,9 @@ export default {
       return store.state.count
     }
   },
+  onLoad (param) {
+    console.log(param)
+  },
   methods: {
     increment () {
       store.commit('increment')

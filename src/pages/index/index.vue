@@ -1,72 +1,56 @@
 <template>
-  <div>
-    <div class="userinfo" @click="bindViewTap">
-      <van-button @click="clickHandle">this is vant components</van-button>
-      <img
-        class="userinfo-avatar"
-        v-if="userInfo.avatarUrl"
-        :src="userInfo.avatarUrl"
-        background-size="cover"
-      />
-      <img class="userinfo-avatar" src="/static/images/user.png" background-size="cover" />
-
-      <div class="userinfo-nickname">
-        <card :text="userInfo.nickName"></card>
-      </div>
-    </div>
-
-    <div class="usermotto">
-      <div class="user-motto">
-        <card :text="motto"></card>
-      </div>
-    </div>
-
-    <form class="form-container">
-      <input type="text" class="form-control" :value="motto" placeholder="v-model" />
-      <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
-      <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
-    </form>
-
-    <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
-
-    <div class="all">
-      <div class="left"></div>
-      <div class="right"></div>
-    </div>
+  <div style="font-size: 24rpx">
+    <view>
+      <view style="text-align:center">接口请求</view>
+      <van-button size="small" @click="postHandle">postHandle</van-button>
+    </view>
+    <van-button size="small" @click="clickHandle">this is vant components</van-button>
+    <view>
+      <view style="text-align:center">组件</view>
+      <van-button size="small" @click="moveToSort">商品筛选</van-button>
+      <van-button size="small" @click="moveToShare">商品分享</van-button>
+    </view>
   </div>
 </template>
 
 <script>
-import { get } from '../../utils/http'
+import { get, serialize } from '../../utils/http'
 import card from '@/components/card'
 
 export default {
   data () {
-    return {
-      motto: 'Hello miniprograme',
-      userInfo: {
-        nickName: 'mpvue',
-        avatarUrl: 'http://mpvue.com/assets/logo.png'
-      }
-    }
+    return {}
   },
-
   components: {
     card
   },
-
+  onLoad (query) {
+    console.log(query)
+  },
   methods: {
+    moveToVuex () {
+      const url = '/pages/counter/main' + serialize({ name: 11, age: 21 })
+      wx.navigateTo({ url })
+    },
+    moveToSort () {
+      const url = '/pages/sticky/main'
+      wx.navigateTo({ url })
+    },
+    moveToShare () {
+      const url = '/pages/share/main'
+      wx.navigateTo({ url })
+    },
     bindViewTap () {
-      const url = '../logs/main'
+      const url = '../logs/main?name=22'
       if (mpvuePlatform === 'wx') {
         mpvue.switchTab({ url })
       } else {
         mpvue.navigateTo({ url })
       }
     },
-    async clickHandle (ev) {
+    async postHandle (ev) {
       try {
-        const result = await get('localhost', { name: '1', age: 21 })
+        const result = await get('localhost')
         console.log('clickHandle:', result)
       } catch (err) {
         console.log(err)
@@ -82,6 +66,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+page {
+  font-size: 24rpx;
+}
 .userinfo {
   display: flex;
   flex-direction: column;

@@ -29,17 +29,18 @@ const request = (method, url) => {
  *  method GET
  */
 const gets = request('GET', global.node_uri)
-export const get = function (api, param = {}) {
+export const get = function (api, param) {
   if (!param) return gets(api)
   return gets(api + serialize(param))
 }
 // get方法处理
-const serialize = function (obj, ary = []) {
+export const serialize = function (obj, ary = []) {
   for (let p in obj) {
     if (obj.hasOwnProperty(p) && obj[p]) { ary.push(`${encodeURIComponent(p)}=${encodeURIComponent(obj[p])}`) }
   }
   return '?' + ary.join('&')
 }
+
 /**
  * @param
  *  method POST

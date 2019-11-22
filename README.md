@@ -12,7 +12,8 @@
 # 新增小程序 miniprogram-api-typings库声明
 <!-- https://developers.weixin.qq.com/miniprogram/dev/extended/utils/api-typings.html -->
 3. 小程序api代码提示
-
+#
+4. 小程序分享功能
 # 安装依赖
 yarn
 

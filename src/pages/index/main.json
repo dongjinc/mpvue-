@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "mpVue",
   "usingComponents": {
     "van-button": "/static/vant-ui/button/index"
   }
