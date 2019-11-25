@@ -9,6 +9,7 @@
       <view style="text-align:center">组件</view>
       <van-button size="small" @click="moveToSort">商品筛选</van-button>
       <van-button size="small" @click="moveToShare">商品分享</van-button>
+      <van-button size="small" @click="moveToLazy">商品懒加载</van-button>
     </view>
   </div>
 </template>
@@ -38,6 +39,10 @@ export default {
     },
     moveToShare () {
       const url = '/pages/share/main'
+      wx.navigateTo({ url })
+    },
+    moveToLazy () {
+      const url = '/pages/intersection/main'
       wx.navigateTo({ url })
     },
     bindViewTap () {

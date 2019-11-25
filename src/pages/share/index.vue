@@ -10,6 +10,7 @@ export default {
   // 分享商品回调
   onShareAppMessage (res) {
     // return eventHandler接收到的分享参数
+    // https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onShareAppMessage-Object-object
     return {
       title: '自定义转发标题',
       path: '/pages/index/main?id=1111',

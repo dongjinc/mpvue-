@@ -3,5 +3,5 @@ var prodEnv = require('./prod.env')
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
-  NODE_URI: '"https://tcb-api.tencentcloudapi.com"'
+  NODE_URI: '"http://127.0.0.1:7001"'
 })
