@@ -1,15 +1,23 @@
 <template>
   <div style="font-size: 24rpx">
-    <view>
-      <view style="text-align:center">接口请求</view>
+    <view :style="{marginTop: globalData.statusBarHeight + 'px'}">
+      <view style="text-align:center;">接口请求</view>
       <van-button size="small" @click="postHandle">postHandle</van-button>
     </view>
     <van-button size="small" @click="clickHandle">this is vant components</van-button>
     <view>
-      <view style="text-align:center">组件</view>
+      <view style="text-align:center;margin-bottom:15rpx">组件</view>
       <van-button size="small" @click="moveToSort">商品筛选</van-button>
       <van-button size="small" @click="moveToShare">商品分享</van-button>
       <van-button size="small" @click="moveToLazy">商品懒加载</van-button>
+      <van-button size="small" @click="moveToPop">弹出窗口</van-button>
+      <van-button size="small" @click="moveToHorizontal">横向滚动</van-button>
+
+      <van-button size="small" @click="moveToColor">Color-Ui</van-button>
+    </view>
+    <view>
+      <view style="text-align:center;margin-bottom:15rpx">坑</view>
+      <van-button size="small" @click="moveToTime">时间计算问题</van-button>
     </view>
   </div>
 </template>
@@ -17,16 +25,30 @@
 <script>
 import { get, serialize } from '../../utils/http'
 import card from '@/components/card'
-
+import store from '../counter/store'
 export default {
   data () {
-    return {}
+    return {
+      globalData: store.state.count
+    }
   },
   components: {
     card
   },
-  onLoad (query) {
-    console.log(query)
+  onLanch () {},
+  onshow (query) {
+    wx.getSystemInfo({
+      success: res => {
+        console.log(res)
+        this.globalData = res
+      }
+    })
+    console.log(new Date('2019-12-02 13:52:13'.replace(/-/g, '/')).getTime())
+  },
+  onShow () {
+    this.$_eventBus.$on('onmessage', res => {
+      console.log(res)
+    })
   },
   methods: {
     moveToVuex () {
@@ -34,6 +56,8 @@ export default {
       wx.navigateTo({ url })
     },
     moveToSort () {
+      /** eventbus */
+      this.$_eventBus.$emit('onmessage', 555)
       const url = '/pages/sticky/main'
       wx.navigateTo({ url })
     },
@@ -43,6 +67,22 @@ export default {
     },
     moveToLazy () {
       const url = '/pages/intersection/main'
+      wx.navigateTo({ url })
+    },
+    moveToTime () {
+      const url = '/pages/time/main'
+      wx.navigateTo({ url })
+    },
+    moveToColor () {
+      const url = '/pages/color/main'
+      wx.navigateTo({ url })
+    },
+    moveToPop () {
+      const url = '/pages/popup/main'
+      wx.navigateTo({ url })
+    },
+    moveToHorizontal () {
+      const url = '/pages/horizontal/main'
       wx.navigateTo({ url })
     },
     bindViewTap () {

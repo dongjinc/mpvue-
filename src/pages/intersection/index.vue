@@ -1,18 +1,21 @@
 <template>
-  <view>
-    <view style="text-align:center">懒加载</view>
-    <view
-      :class="['swipe-notice', item.show?'show': 'show-false']"
-      :data-set="index"
-      v-for="(item, index) in list"
-      :key="index"
-    >
-      <image :src="item.show?item.src: ''" style="width:320rpx;height:320rpx;" />
+  <scroll-view scroll-y="true" :style="{height: scrollHeight}" @scroll="getScroll">
+    <view>
+      <view style="text-align:center">懒加载</view>
+      <view
+        :class="['swipe-notice', item.show?'show': 'show-false']"
+        :data-set="index"
+        v-for="(item, index) in list"
+        :key="index"
+      >
+        <image :src="item.show?item.src: ''" style="width:320rpx;height:320rpx;" />
+      </view>
+      <button size="mini" @tap="insertData">插数据</button>
     </view>
-    <button size="mini" @tap="insertData">插数据</button>
-  </view>
+  </scroll-view>
 </template>
 <script>
+import store from '../counter/store'
 export default {
   name: 'Intersection',
   data () {
@@ -83,9 +86,77 @@ export default {
           show: false,
           src:
             'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574745528562&di=3f991dd7c087fa7911ec46740807961b&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201208%2F30%2F20120830173938_SyCJn.jpeg'
+        },
+        {
+          name: '11',
+          show: false,
+          src:
+            'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574745528459&di=cb2c88ef7f12e589491521f9f34c28d7&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201407%2F07%2F20140707163445_3WZjj.jpeg'
+        },
+        {
+          name: '12',
+          show: false,
+          src:
+            'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574745528459&di=cb2c88ef7f12e589491521f9f34c28d7&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201407%2F07%2F20140707163445_3WZjj.jpeg'
+        },
+        {
+          name: '13',
+          show: false,
+          src:
+            'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574745528459&di=cb2c88ef7f12e589491521f9f34c28d7&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201407%2F07%2F20140707163445_3WZjj.jpeg'
+        },
+        {
+          name: '14',
+          show: false,
+          src:
+            'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574745528459&di=cb2c88ef7f12e589491521f9f34c28d7&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201407%2F07%2F20140707163445_3WZjj.jpeg'
+        },
+        {
+          name: '15',
+          show: false,
+          src:
+            'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574745528459&di=cb2c88ef7f12e589491521f9f34c28d7&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201407%2F07%2F20140707163445_3WZjj.jpeg'
+        },
+        {
+          name: '16',
+          show: false,
+          src:
+            'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574745528459&di=cb2c88ef7f12e589491521f9f34c28d7&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201407%2F07%2F20140707163445_3WZjj.jpeg'
+        },
+        {
+          name: '17',
+          show: false,
+          src:
+            'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574745528459&di=cb2c88ef7f12e589491521f9f34c28d7&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201407%2F07%2F20140707163445_3WZjj.jpeg'
+        },
+        {
+          name: '18',
+          show: false,
+          src:
+            'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574745528459&di=cb2c88ef7f12e589491521f9f34c28d7&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201407%2F07%2F20140707163445_3WZjj.jpeg'
+        },
+        {
+          name: '19',
+          show: false,
+          src:
+            'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574745528459&di=cb2c88ef7f12e589491521f9f34c28d7&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201407%2F07%2F20140707163445_3WZjj.jpeg'
+        },
+        {
+          name: '20',
+          show: false,
+          src:
+            'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574745528459&di=cb2c88ef7f12e589491521f9f34c28d7&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201407%2F07%2F20140707163445_3WZjj.jpeg'
+        },
+        {
+          name: '21',
+          show: false,
+          src:
+            'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574745528562&di=3f991dd7c087fa7911ec46740807961b&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201208%2F30%2F20120830173938_SyCJn.jpeg'
         }
       ],
-      _observer: null
+      _observer: null,
+      scrolling: false,
+      scrollHeight: store.state.count.windowHeight + 'px'
     }
   },
   onReachBottom () {
@@ -93,11 +164,12 @@ export default {
     this._observer.disconnect()
   },
   mounted () {
+    this.scrollHeight = store.state.count.windowHeight + 48 + 'px'
     this.intersectionData()
   },
   methods: {
     insertData () {
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 20; i++) {
         this.list.push({
           name: 'me' + i,
           show: false,
@@ -106,9 +178,11 @@ export default {
         })
       }
       this.$nextTick(() => {
+        this.scrolling = false
         this.intersectionData()
       })
     },
+    /** 懒加载 */
     intersectionData () {
       this._observer = wx.createIntersectionObserver(null, {
         observeAll: true
@@ -117,8 +191,30 @@ export default {
         if (res.intersectionRatio > 0 && !this.list[res.dataset['set']].show) {
           this.list[res.dataset['set']].show = true
         }
-        console.log(666)
       })
+    },
+    /** 通过 内容高度和滑动指定位置进行相减  */
+    getScroll (e) {
+      if (e.mp.detail.scrollHeight - e.mp.detail.scrollTop < 3200) {
+        this.more()
+      }
+    },
+    more () {
+      /** scrolltolower 事件会导致多次触发 */
+      if (this.scrolling) return false
+      wx.getSystemInfo({
+        success: res => {
+          console.log(res)
+        }
+      })
+      this.scrolling = true
+      if (this.list.length >= 248) return false
+      /** 请求接口 */
+      setTimeout(() => {
+        this.insertData()
+        console.log('请求一次!')
+      }, 600)
+      console.log(555)
     }
   }
 }

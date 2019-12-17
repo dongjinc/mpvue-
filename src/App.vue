@@ -1,7 +1,22 @@
 <script>
 // 声明wx api文件
 /// <reference types="miniprogram-api-typings" />
+import store from './pages/counter/store'
 export default {
+  data () {
+    return {
+      globalData: {
+        userInfo: null
+      }
+    }
+  },
+  onLaunch () {
+    wx.getSystemInfo({
+      success: res => {
+        store.state.count = res
+      }
+    })
+  },
   created () {
     // 调用API从本地缓存中获取数据
     /*
